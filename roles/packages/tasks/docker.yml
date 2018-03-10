@@ -1,0 +1,6 @@
+---
+- import_tasks: docker-redhat.yml
+  when: ansible_os_family|lower == 'redhat'
+
+- import_tasks: docker-debian.yml
+  when: ansible_os_family|lower == 'debian'

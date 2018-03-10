@@ -1,0 +1,6 @@
+---
+- import_tasks: mosh-redhat.yml
+  when: ansible_os_family|lower == 'redhat'
+
+- import_tasks: mosh-debian.yml
+  when: ansible_os_family|lower == 'debian'

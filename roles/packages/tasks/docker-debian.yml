@@ -1,0 +1,50 @@
+---
+# Install Docker repo
+# https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
+
+- name: apt-get update
+  apt:
+    update_cache: true
+
+- name: Install pre-req packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name: Add Docker GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker repo. TODO assumes xenial ubuntu
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+    update_cache: yes
+
+- name: Install docker-ce
+  apt:
+    name: docker-ce
+    state: present
+
+- name: Add docker group
+  group:
+    name: docker
+    state: present
+
+- name: Add user to docker group
+  user:
+    name: "{{ lookup('env','USER') }}"
+    groups: docker
+    append: yes
+
+- name: Enable and start docker
+  systemd:
+    daemon_reload: yes
+    enabled: yes
+    state: started
+    name: docker

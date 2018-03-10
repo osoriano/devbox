@@ -1,0 +1,9 @@
+---
+- name: apt-get update
+  apt:
+    update_cache: true
+
+- name: Install tmux
+  apt:
+    name: tmux
+    state: present
