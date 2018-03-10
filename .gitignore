@@ -2,3 +2,5 @@
 /hosts
 
 *.swp
+
+*.retry
