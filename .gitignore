@@ -1,0 +1,4 @@
+# Hosts file can be different per-user, so do not check in
+/hosts
+
+*.swp
