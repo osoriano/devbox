@@ -1,0 +1,6 @@
+---
+- name: Install mosh
+  become: no
+  homebrew:
+    name: mosh
+    state: present

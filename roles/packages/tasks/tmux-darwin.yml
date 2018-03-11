@@ -1,0 +1,7 @@
+---
+- name: Install tmux
+  become: no
+  homebrew:
+    name: tmux
+    state: present
+

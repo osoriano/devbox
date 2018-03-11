@@ -1,4 +1,6 @@
 ---
+- debug:
+    msg: "os fam is {{ ansible_os_family|lower }}"
 - import_tasks: docker.yml
 - import_tasks: mosh.yml
 - import_tasks: tmux.yml
