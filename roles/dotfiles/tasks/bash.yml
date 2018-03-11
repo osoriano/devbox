@@ -4,19 +4,25 @@
     repo: "https://github.com/osoriano/.bashrc.d.git"
     dest: ~/.bashrc.d
 
-# Some OS's have a default bashrc. Append instead of overwriting
-# - name: Create bash conf symlink
-#   file:
-#     src: ~/.bashrc.d/bashrc.sh
-#     dest: ~/.bashrc
-#     state: link
+- name: Check if bashrc file already present
+  stat:
+    path: ~/.bashrc
+  register: bashrc_stat
 
-- name: Source aliases in bashrc
+
+- name: Create bash conf symlink
+  file:
+    src: ~/.bashrc.d/bashrc.sh
+    dest: ~/.bashrc
+    state: link
+  when: bashrc_stat.stat.exists == False
+
+- name: Source aliases in existing bashrc
   lineinfile:
     line: "source ~/.bashrc.d/alias.sh"
     path: ~/.bashrc
 
-- name: Source env vars in bashrc
+- name: Source env vars in existing bashrc
   lineinfile:
     line: "source ~/.bashrc.d/env.sh"
     path: ~/.bashrc
