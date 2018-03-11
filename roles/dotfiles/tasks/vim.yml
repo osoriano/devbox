@@ -3,3 +3,8 @@
   git:
     repo: "https://github.com/osoriano/.vim.git"
     dest: ~/.vim
+
+- name: Get Vundle config
+  git:
+    repo: "https://github.com/VundleVim/Vundle.vim.git"
+    dest: ~/.vim/bundle/Vundle.vim
