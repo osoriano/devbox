@@ -4,3 +4,8 @@
   become: true
   roles:
     - packages
+
+- name: Configure packages
+  hosts: servers
+  roles:
+    - dotfiles

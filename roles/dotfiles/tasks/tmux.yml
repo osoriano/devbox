@@ -1,0 +1,11 @@
+---
+- name: Get tmux config repo
+  git:
+    repo: "https://github.com/osoriano/.tmux.git"
+    dest: ~/.tmux
+
+- name: Create tmux conf symlink
+  file:
+    src: ~/.tmux/tmux.conf
+    dest: ~/.tmux.conf
+    state: link

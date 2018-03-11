@@ -1,0 +1,5 @@
+---
+- name: Get vim config repo
+  git:
+    repo: "https://github.com/osoriano/.vim.git"
+    dest: ~/.vim
