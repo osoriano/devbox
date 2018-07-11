@@ -9,7 +9,6 @@
     path: ~/.bashrc
   register: bashrc_stat
 
-
 - name: Create bash conf symlink
   file:
     src: ~/.bashrc.d/bashrc.sh
