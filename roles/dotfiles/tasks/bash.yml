@@ -4,24 +4,7 @@
     repo: "https://github.com/osoriano/.bashrc.d.git"
     dest: ~/.bashrc.d
 
-- name: Check if bashrc file already present
-  stat:
-    path: ~/.bashrc
-  register: bashrc_stat
-
-- name: Create bash conf symlink
-  file:
-    src: ~/.bashrc.d/bashrc.sh
-    dest: ~/.bashrc
-    state: link
-  when: bashrc_stat.stat.exists == False
-
-- name: Source aliases in existing bashrc
+- name: Source .bashrc.d alias
   lineinfile:
-    line: "source ~/.bashrc.d/alias.sh"
-    path: ~/.bashrc
-
-- name: Source env vars in existing bashrc
-  lineinfile:
-    line: "source ~/.bashrc.d/env.sh"
+    line: "source ~/.bashrc.d/bashrc.sh"
     path: ~/.bashrc
