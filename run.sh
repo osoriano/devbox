@@ -28,14 +28,16 @@ fi
 # Server IP is expected to change
 ssh-keygen -R "${HOST}"
 
+SSH="ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no"
+
 # Wait for cloud init to complete
-while ! ssh "${HOST}" "[[ -f ${CLOUD_INIT_RESULT_FILE} ]]"; do
+while ! ${SSH} "${HOST}" "[[ -f ${CLOUD_INIT_RESULT_FILE} ]]"; do
     echo "Waiting for ssh to come up"
     sleep 10
 done
 
 # Verify cloud init was successful
-CLOUD_INIT_RESULT="$(ssh "${HOST}" "cat ${CLOUD_INIT_RESULT_FILE}")"
+CLOUD_INIT_RESULT="$(${SSH} "${HOST}" "cat ${CLOUD_INIT_RESULT_FILE}")"
 NUM_CLOUD_INIT_ERRORS="$(echo "${CLOUD_INIT_RESULT}" | jq '.v1.errors | length')"
 if [[ "${NUM_CLOUD_INIT_ERRORS}" != 0 ]]; then
     echo "Cloud init failure"
