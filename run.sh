@@ -28,7 +28,7 @@ fi
 # Server IP is expected to change
 ssh-keygen -R "${HOST}"
 
-SSH="ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no"
+SSH="ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o BatchMode=yes"
 
 # Wait for cloud init to complete
 while ! ${SSH} "${HOST}" "[[ -f ${CLOUD_INIT_RESULT_FILE} ]]"; do
