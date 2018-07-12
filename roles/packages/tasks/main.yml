@@ -5,3 +5,4 @@
 - import_tasks: mosh.yml
 - import_tasks: tmux.yml
 - import_tasks: go.yml
+- import_tasks: node.yml

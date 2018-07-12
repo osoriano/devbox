@@ -1,0 +1,20 @@
+---
+- name: Create installation directory
+  file:
+    path: /usr/local/node
+    state: directory
+
+- name: Download Node
+  unarchive:
+    remote_src: yes
+    # TODO factor out constants
+    src: "https://nodejs.org/dist/v10.6.0/node-v10.6.0-linux-x64.tar.xz"
+    creates: /usr/local/node/bin
+    dest: /usr/local/node
+    extra_opts:
+      - "--strip-component=1"
+
+- name: Include Node binaries in PATH
+  lineinfile:
+    line: "export PATH=\"$PATH\":/usr/local/node/bin"
+    path: "/home/{{ lookup('env','USER') }}/.bashrc"
