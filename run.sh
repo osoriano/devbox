@@ -25,6 +25,9 @@ if [[ "$NUM_HOSTS" != 1 ]]; then
     exit 1
 fi
 
+# Server IP is expected to change
+ssh-keygen -R "${HOST}"
+
 # Wait for cloud init to complete
 while ! ssh "${HOST}" "[[ -f ${CLOUD_INIT_RESULT_FILE} ]]"; do
     echo "Waiting for ssh to come up"
