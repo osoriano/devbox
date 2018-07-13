@@ -5,12 +5,11 @@
 - name: Download Go
   unarchive:
     remote_src: yes
-    # TODO factor out constants
-    src: "https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz"
+    src: "{{ go_download_url }}"
     creates: /usr/local/go
     dest: /usr/local
 
 - name: Include Go binaries in PATH
   lineinfile:
-    line: "export PATH=\"$PATH\":/usr/local/go/bin:/home/{{ lookup('env','USER') }}/go/bin"
+    line: "export PATH=\"$PATH\":{{ go_paths }}"
     path: "/home/{{ lookup('env','USER') }}/.bashrc"
