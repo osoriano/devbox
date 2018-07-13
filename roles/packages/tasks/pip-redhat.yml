@@ -1,0 +1,3 @@
+---
+- fail:
+    msg: "Pip install not yet supported on redhat"

@@ -7,3 +7,4 @@
 - import_tasks: go.yml
 - import_tasks: node.yml
 - import_tasks: jq.yml
+- import_tasks: pip.yml

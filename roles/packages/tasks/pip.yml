@@ -1,0 +1,6 @@
+---
+- import_tasks: pip-redhat.yml
+  when: ansible_os_family|lower == 'redhat'
+
+- import_tasks: pip-debian.yml
+  when: ansible_os_family|lower == 'debian'

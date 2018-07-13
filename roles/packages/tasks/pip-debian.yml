@@ -1,0 +1,25 @@
+---
+- name: Install pip
+  apt:
+    name: python-pip
+    state: present
+
+- name: Install global pip packages
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+  - pip
+  - virtualenv
+
+- name: Install awscli to virtualenv
+  pip:
+    name: awscli
+    state: latest
+    virtualenv: /usr/local/awscli
+
+- name: Install awscli link
+  file:
+    src: /usr/local/awscli/bin/aws
+    dest: /usr/local/bin/aws
+    state: link
