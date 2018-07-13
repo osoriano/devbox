@@ -1,4 +1,27 @@
 ---
+- name: Clone ctags (dependency of majutsushi/tagbar)
+  git:
+      repo: "https://github.com/universal-ctags/ctags.git"
+      dest: ~/gh/universal-ctags/ctags
+
+- name: Install ctag dependencies
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - autoconf
+    - pkg-config
+
+- name: Install ctags
+  shell: >
+    ./autogen.sh &&
+    ./configure &&
+    make &&
+    sudo make install
+  args:
+    chdir: ~/gh/universal-ctags/ctags
+
 - name: Get vim config repo
   git:
     repo: "https://github.com/osoriano/.vim.git"
@@ -8,3 +31,26 @@
   git:
     repo: "https://github.com/VundleVim/Vundle.vim.git"
     dest: ~/.vim/bundle/Vundle.vim
+
+- name: Vundle plugin install
+  shell: vim +PluginInstall +qall >> /tmp/vim-plugin-install.log 2>&1
+
+# YouCompleteMe Plugin installation
+# https://github.com/Valloric/YouCompleteMe#installation
+- name: Install YouCompleteMe package dependencies
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - build-essential
+    - cmake
+    - python-dev
+    - python3-dev
+
+- name: Install YouCompleteMe
+  command: ./install.py --clang-completer --go-completer --js-completer
+  args:
+    chdir: ~/.vim/bundle/YouCompleteMe
+  environment:
+    PATH: '{{ ansible_env.PATH }}:{{ go_paths }}:{{ node_path}}'
