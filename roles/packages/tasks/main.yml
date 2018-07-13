@@ -6,3 +6,4 @@
 - import_tasks: tmux.yml
 - import_tasks: go.yml
 - import_tasks: node.yml
+- import_tasks: jq.yml
