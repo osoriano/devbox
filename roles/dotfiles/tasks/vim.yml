@@ -33,7 +33,7 @@
     dest: ~/.vim/bundle/Vundle.vim
 
 - name: Vundle plugin install
-  shell: vim +PluginInstall +qall >> /tmp/vim-plugin-install.log 2>&1
+  shell: vim +PluginInstall +GoInstallBinaries +qall >> /tmp/vim-plugin-install.log 2>&1
 
 # YouCompleteMe Plugin installation
 # https://github.com/Valloric/YouCompleteMe#installation
