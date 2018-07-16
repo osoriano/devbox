@@ -47,4 +47,4 @@ fi
 
 export ANSIBLE_HOST_KEY_CHECKING=False
 
-ansible-playbook -v -i "${HOSTS_FILE}" playbook.yml
+ansible-playbook -v -i "${HOSTS_FILE}" "$@" playbook.yml

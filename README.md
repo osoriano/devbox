@@ -21,4 +21,4 @@ Remote Server Requirements
 
 Instructions
 ============
-Run `run.sh`
+Run `run.sh -e git_user_name="<git_user_name>" -e git_user_email="<git_user_email>"`
