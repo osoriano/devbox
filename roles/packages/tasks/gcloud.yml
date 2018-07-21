@@ -1,0 +1,16 @@
+---
+# Install google-cloud-sdk
+# https://cloud.google.com/sdk/docs/quickstart-linux
+
+- name: Download google-cloud-sdk
+  unarchive:
+    remote_src: yes
+    src: "{{ gcloud_download_url }}"
+    creates: /usr/local/google-cloud-sdk
+    dest: /usr/local
+
+- name: Install gcloud link
+  file:
+    src: /usr/local/google-cloud-sdk/bin/gcloud
+    dest: /usr/local/bin/gcloud
+    state: link

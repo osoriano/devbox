@@ -6,3 +6,5 @@ node_download_url: "https://nodejs.org/dist/v10.6.0/node-v10.6.0-linux-x64.tar.x
 node_path: "/usr/local/node/bin"
 
 jq_download_url: "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64"
+
+gcloud_download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-209.0.0-linux-x86_64.tar.gz"
