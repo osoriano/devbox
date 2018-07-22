@@ -9,3 +9,9 @@
   hosts: servers
   roles:
     - dotfiles
+
+- name: Reboot server
+  hosts: servers
+  become: true
+  roles:
+    - reboot
