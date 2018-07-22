@@ -22,3 +22,11 @@ Remote Server Requirements
 Instructions
 ============
 Run `run.sh -e git_user_name="<git_user_name>" -e git_user_email="<git_user_email>"`
+
+Manual Steps
+============
+These steps are not yet automated :sweat_smile:
+
+- Provision AWS access keys
+- Provision Github SSH keys
+- Provision gcloud access keys
