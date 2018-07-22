@@ -34,6 +34,8 @@
 
 - name: Vundle plugin install
   shell: vim +PluginInstall +GoInstallBinaries +qall >> /tmp/vim-plugin-install.log 2>&1
+  environment:
+    PATH: '{{ ansible_env.PATH }}:{{ go_paths }}:{{ node_path}}'
 
 # YouCompleteMe Plugin installation
 # https://github.com/Valloric/YouCompleteMe#installation
