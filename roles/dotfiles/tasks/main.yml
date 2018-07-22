@@ -3,3 +3,4 @@
 - import_tasks: tmux.yml
 - import_tasks: vim.yml
 - import_tasks: bash.yml
+- import_tasks: go.yml

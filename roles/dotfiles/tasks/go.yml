@@ -1,0 +1,8 @@
+---
+# TODO this does not need to be in the 'packages' roles
+# since sudo/root is not required. Consider creating
+# a user-packages role
+- name: Install fzf
+  command: go get -u github.com/junegunn/fzf
+  environment:
+    PATH: '{{ ansible_env.PATH }}:{{ go_paths }}:{{ node_path}}'
