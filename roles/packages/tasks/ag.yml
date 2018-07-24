@@ -1,0 +1,6 @@
+---
+- import_tasks: ag-redhat.yml
+  when: ansible_os_family|lower == 'redhat'
+
+- import_tasks: ag-debian.yml
+  when: ansible_os_family|lower == 'debian'

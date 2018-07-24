@@ -1,0 +1,5 @@
+---
+- name: Install ag
+  apt:
+    name: silversearcher-ag
+    state: present
