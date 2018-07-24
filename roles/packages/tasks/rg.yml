@@ -1,0 +1,20 @@
+---
+- name: Create installation directory
+  file:
+    path: /usr/local/rg
+    state: directory
+
+- name: Download rg
+  unarchive:
+    remote_src: yes
+    src: "{{ rg_download_url }}"
+    creates: /usr/local/rg/rg
+    dest: /usr/local/rg
+    extra_opts:
+      - "--strip-component=1"
+
+- name: Install rg link
+  file:
+    src: /usr/local/rg/rg
+    dest: /usr/local/bin/rg
+    state: link

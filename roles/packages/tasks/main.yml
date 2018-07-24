@@ -8,5 +8,6 @@
 - import_tasks: node.yml
 - import_tasks: jq.yml
 - import_tasks: ag.yml
+- import_tasks: rg.yml
 - import_tasks: pip.yml
 - import_tasks: gcloud.yml
