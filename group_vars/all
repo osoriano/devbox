@@ -2,7 +2,7 @@
 go_download_url: "https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz"
 go_paths: "/usr/local/go/bin:/home/{{ lookup('env','USER') }}/go/bin"
 
-node_download_url: "https://nodejs.org/dist/v10.6.0/node-v10.6.0-linux-x64.tar.xz"
+node_download_url: "https://nodejs.org/dist/v11.6.0/node-v11.6.0-linux-x64.tar.xz"
 node_path: "/usr/local/node/bin"
 
 jq_download_url: "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64"
