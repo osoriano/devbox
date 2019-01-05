@@ -1,5 +1,5 @@
 ---
-go_download_url: "https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz"
+go_download_url: "https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz"
 go_paths: "/usr/local/go/bin:/home/{{ lookup('env','USER') }}/go/bin"
 
 node_download_url: "https://nodejs.org/dist/v11.6.0/node-v11.6.0-linux-x64.tar.xz"
