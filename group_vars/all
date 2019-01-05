@@ -9,4 +9,4 @@ jq_download_url: "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-lin
 
 gcloud_download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-209.0.0-linux-x86_64.tar.gz"
 
-rg_download_url: "https://github.com/BurntSushi/ripgrep/releases/download/0.8.1/ripgrep-0.8.1-x86_64-unknown-linux-musl.tar.gz"
+rg_download_url: "https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep-0.10.0-x86_64-unknown-linux-musl.tar.gz"
